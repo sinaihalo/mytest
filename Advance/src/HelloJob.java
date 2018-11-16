@@ -14,7 +14,7 @@ public class HelloJob implements Job{
      * <p>
      * Quartz requires a public empty constructor so that the
      * scheduler can instantiate the class whenever it needs.
-     * </p>
+     * </p> 
      */
     public HelloJob() {
     }
