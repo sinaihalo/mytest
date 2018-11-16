@@ -5,7 +5,7 @@ public class Client {
         BookFacadeImpl1 bookFacade=new BookFacadeImpl1();
         BookFacadeCglib  cglib=new BookFacadeCglib();  
         BookFacadeImpl1 bookCglib=(BookFacadeImpl1)cglib.getInstance(bookFacade);  
-        bookCglib.addBook(); 
+        bookCglib.addBook();    
         bookCglib.removeBook();
     }
 }
