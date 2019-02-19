@@ -22,6 +22,7 @@ public class Person implements Comparable<Person> {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	@Override
 	public int compareTo(Person o) {
         int num = this.age - o.age;                //年龄是比较的主要条件
         return num == 0 ? this.name.compareTo(o.name) : num;//姓名是比较的次要条件

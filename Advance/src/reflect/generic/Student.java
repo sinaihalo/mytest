@@ -17,6 +17,7 @@ public static void main(String[] args) {
 		//ParameterizedType参数化类型，即泛型
 		ParameterizedType p=(ParameterizedType)type;
 		//getActualTypeArguments获取参数化类型的数组，泛型可能有多个
+		Type[] t = p.getActualTypeArguments();
 		Class c=(Class) p.getActualTypeArguments()[0];
 		System.out.println(c);
 	}
