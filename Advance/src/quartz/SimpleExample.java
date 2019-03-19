@@ -1,3 +1,4 @@
+package quartz;
 import java.util.Date;
 
 import static org.quartz.CronScheduleBuilder.cronSchedule;
