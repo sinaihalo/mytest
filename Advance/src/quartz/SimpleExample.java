@@ -43,14 +43,15 @@ public class SimpleExample {
 	    JobDetail job = newJob(HelloJob.class).withIdentity("job2", "group2").build();
 
 	    // Trigger the job to run on the next round minute
-	    Trigger trigger = newTrigger().withIdentity("trigger2", "group2").withSchedule(cronSchedule("0 0/30 * * * ?")).build();
+	    Trigger trigger = newTrigger().withIdentity("trigger2", "group2").withSchedule(cronSchedule("*/5 * * * * ?")).build();
 
 	    // Tell quartz to schedule the job using our trigger
-	    sched.scheduleJob(job, trigger);
+	    //sched.scheduleJob(job, trigger);
 	    //System.out.println(job.getKey() + " will run at: " + runTime);
 
 	    // Start up the scheduler (nothing can actually run until the
 	    // scheduler has been started)
+	    sched.resumeJob(job.getKey());
 	    sched.start();
 
 	    System.out.println("------- Started Scheduler -----------------");
@@ -68,7 +69,7 @@ public class SimpleExample {
 
 	    // shut down the scheduler
 	    System.out.println("------- Shutting Down ---------------------");
-	    //sched.shutdown(true);
+	    sched.shutdown(true);
 	    System.out.println("------- Shutdown Complete -----------------");
 		
 	}
