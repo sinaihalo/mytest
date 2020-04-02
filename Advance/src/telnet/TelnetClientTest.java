@@ -49,9 +49,10 @@ public class TelnetClientTest {
             
             
             //System.out.println(0x1d&0x1f);
-            tc.disconnect();
+            
             in.close();
-            //os.close();
+            os.close();
+            tc.disconnect();
         } catch (SocketException e) {
             e.printStackTrace();
         } catch (IOException e) {
