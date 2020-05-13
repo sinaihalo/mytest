@@ -14,26 +14,26 @@ public class TelnetClientTest {
 
         try {
         	TelnetClient tc = new TelnetClient("VT220");
-        	tc.connect("192.168.182.212", 2323);
+        	tc.connect("9.83.11.100", 23);
         	InputStream in = tc.getInputStream();
         	OutputStream os = tc.getOutputStream();
             
             System.out.print(readUntil(":", in));
             
-            writeUtil("ultra", os);
+            writeUtil("admin", os);
             System.out.print(readUntil(":", in));
             
-            writeUtil("ultra", os);
-            System.out.print(readUntil("$", in));
+            writeUtil("password", os);
+            System.out.print(readUntil(">", in));
             
             
-            writeUtil("pwd", os);
-            System.out.print(readUntil("$", in));
+            writeUtil("fanshow", os);
+            System.out.print(readUntil(">", in));
             
-            writeUtil("cd /", os);
-            System.out.print(readUntil("$", in));
+            writeUtil("exit", os);
+            //System.out.print(readUntil("$", in));
             
-            writeUtil("ll ", os);
+            /*writeUtil("ll ", os);
             System.out.print(readUntil("$", in));
             
             writeUtil("\03h", os);
@@ -44,7 +44,7 @@ public class TelnetClientTest {
             
             
             writeUtil("\004", os);
-            System.out.print(readUntil("$", in));
+            System.out.print(readUntil("$", in));*/
             
             
             
