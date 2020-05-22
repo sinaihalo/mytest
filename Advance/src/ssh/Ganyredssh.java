@@ -78,10 +78,10 @@ return buffer.toString();
 
 public static void main(String[] args) {
 long currentTimeMillis = System.currentTimeMillis();
-String ip = "192.168.95.228";
-String username = "user1";
-String password = "Ultrapower_123";
-String cmd = "show";
+String ip = "9.83.11.28";
+String username = "admin";
+String password = "admin";
+String cmd = "show system/chassis1/node1";
 Connection connection = login(ip, username, password);
 String execmd = execmd(connection, cmd);
 System.out.println(execmd);

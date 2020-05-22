@@ -8,9 +8,9 @@ import com.jcraft.jsch.Session;
 import com.jcraft.jsch.UserInfo;
 
 public class Jschssh {
-	private static final String USER="user1";
-    private static final String PASSWORD="Ultrapower_123";
-    private static final String HOST="192.168.95.228";
+	private static final String USER="admin";
+    private static final String PASSWORD="admin";
+    private static final String HOST="9.83.11.28";
     private static final int DEFAULT_SSH_PORT=22;
  
     public static void main(String[] arg){
@@ -24,7 +24,7 @@ public class Jschssh {
             session.setUserInfo(new MyUserInfo());
             session.connect();
  
-            String command="show";
+            String command="show system/summary/";
  
             Channel channel=session.openChannel("exec");
             ((ChannelExec)channel).setCommand(command);

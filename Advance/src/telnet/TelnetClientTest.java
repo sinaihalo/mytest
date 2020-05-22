@@ -14,20 +14,24 @@ public class TelnetClientTest {
 
         try {
         	TelnetClient tc = new TelnetClient("VT220");
-        	tc.connect("9.83.11.100", 23);
+        	//tc.connect("9.83.11.100", 23);
+        	tc.connect(args[0], 23);
         	InputStream in = tc.getInputStream();
         	OutputStream os = tc.getOutputStream();
             
             System.out.print(readUntil(":", in));
             
-            writeUtil("admin", os);
+            //writeUtil("admin", os);
+            writeUtil(args[1], os);
             System.out.print(readUntil(":", in));
             
-            writeUtil("password", os);
+            //writeUtil("password", os);
+            writeUtil(args[2], os);
+            //提示符
             System.out.print(readUntil(">", in));
             
-            
-            writeUtil("fanshow", os);
+            //命令 fanshow
+            writeUtil(args[3], os);
             System.out.print(readUntil(">", in));
             
             writeUtil("exit", os);
