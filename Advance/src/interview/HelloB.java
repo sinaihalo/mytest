@@ -11,6 +11,7 @@ package interview;
  	2.{}初始化块，创建对象
  	3.构造器
  	4.先父类后子类
+ 	5.一个类中static可以有多个
  *
  */
 public class HelloB extends HelloA{
@@ -19,7 +20,7 @@ public class HelloB extends HelloA{
 	}
 	{System.out.println("I am B class");}
 	static{System.out.println("static B");}
-	//static{}
+	static{System.out.println("static B1");}
 	public static void main(String[] args) {
 		new HelloB();
 
