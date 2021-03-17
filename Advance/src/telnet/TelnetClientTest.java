@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.SocketException;
 
 import org.apache.commons.net.telnet.TelnetClient;
@@ -31,9 +32,10 @@ public class TelnetClientTest {
             System.out.print(readUntil(">", in));
             
             //命令 fanshow
-            writeUtil(args[3], os);
-            System.out.print(readUntil(">", in));
-            
+            writeUtil1(args[3], os);
+            //System.out.println("command:"+args[3]);
+            System.out.println(readUntil(">", in));
+            System.out.println("command end");
             writeUtil("exit", os);
             //System.out.print(readUntil("$", in));
             
@@ -83,7 +85,21 @@ public class TelnetClientTest {
         }
         
     }
-    
+    /**
+     * 写入命令方法
+     * @param cmd
+     * @param os
+     */
+    public static void writeUtil1(String cmd, OutputStream os){
+        try {
+            cmd = cmd + "\r";
+            os.write(cmd.getBytes());
+            os.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+    }
     /**
      * 读到指定位置,不在向下读
      * @param endFlag
@@ -92,13 +108,14 @@ public class TelnetClientTest {
      */
     public static String readUntil(String endFlag, InputStream in) {
         
-        InputStreamReader isr = new InputStreamReader(in);
-        
-        char[] charBytes = new char[1024];
-        int n = 0;
-        boolean flag = false;
-        String str = "";
+       
+    	String str = "";
         try {
+        	 InputStreamReader isr = new InputStreamReader(in,"utf-8");;
+             
+             char[] charBytes = new char[1024];
+             int n = 0;
+             boolean flag = false;
             while((n = isr.read(charBytes)) != -1){
                 for(int i=0; i< n; i++){
                     char c = (char)charBytes[i];

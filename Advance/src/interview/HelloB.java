@@ -19,6 +19,7 @@ public class HelloB extends HelloA{
 	}
 	{System.out.println("I am B class");}
 	static{System.out.println("static B");}
+	//static{}
 	public static void main(String[] args) {
 		new HelloB();
 
